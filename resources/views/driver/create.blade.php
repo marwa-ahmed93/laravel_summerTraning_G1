@@ -18,7 +18,7 @@
     </div>
 @endif
 
-   <form method="post" action="{{url('/store)}}" class="w-75 m-auto mt-3" >
+   <form method="post" action="{{route('driver.store')}}" class="w-75 m-auto mt-3" >
     @csrf
 
   <div class="mb-3">

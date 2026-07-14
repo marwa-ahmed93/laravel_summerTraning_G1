@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DriverController;
 use App\Http\Controllers\ProvisionServer;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\CheckRole;
@@ -36,21 +37,31 @@ Route::view('/hello', 'hello');
 
 
 
-// Route::middleware([CheckRole::class])->group(function(){
-
-//  Route::controller([UserController::class])->group(function(){
-
-// Route::get('/user','index')->name('users.index');
-
-// Route::get('/createUser','create');
+Route::controller(DriverController::class)->group(function(){
 
 
-// Route::post('/user-store','store')->name('users.store');
-
-//  });
 
 
+Route::get('/create','create')->name('driver.create');
+Route::post('/store','store')->name('driver.store');
+Route::get('/drivers','index')->name('driver.index');
+Route::get('/show/{id}','show')->name('driver.show');
+
+});
+
+
+
+
+// Route::controller([UserController::class])->group(function(){
+
+//   Route::get('/users','index'); 
+// Route::get('/create','create' );
+// Route::post('/store','store' )->name('users.store');
 // });
+   
+Route::middleware(CheckRole::class)->group(function(){
+
+});
 
 
 
@@ -60,4 +71,10 @@ Route::view('/hello', 'hello');
 
 
 
-Route::post('/server', ProvisionServer::class);
+
+
+
+
+
+
+

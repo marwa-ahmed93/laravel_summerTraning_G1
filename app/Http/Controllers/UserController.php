@@ -29,7 +29,7 @@ public function store(Request $request){
         'email'=>$validated['email'],
         'password'=>$validated['password'],
     ]);
- return redirect('/user');
+ return redirect('/users');
 }
 
 }
