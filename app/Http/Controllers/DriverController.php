@@ -11,7 +11,7 @@ class DriverController extends Controller
  public function index(){
     $drivers =  Driver::paginate(10);
     // dd($drivers);
-    return view('driver.index' ,compact('drivers'));
+    return view('driver.index' ,[compact('drivers')]);
  }
 
 public function show($id){
@@ -41,7 +41,8 @@ $validated = $request->validate([
    //      'email'=>$validated['email'],
    //      'password'=>$validated['password'],
    //  ]);
-
+   
+// DB::table('users')->insert(['']);
 
 $driver= new Driver();
 $driver->name = $request->name;

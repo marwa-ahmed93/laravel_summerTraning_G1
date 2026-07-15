@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CarController;
 use App\Http\Controllers\DriverController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ProvisionServer;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\CheckRole;
@@ -49,6 +51,30 @@ Route::get('/show/{id}','show')->name('driver.show');
 
 });
 
+
+
+
+
+Route::controller(CarController::class)->group(function(){
+
+
+
+
+Route::get('/create/car','create')->name('car.create');
+Route::post('/store/car','store')->name('car.store');
+Route::get('/cars','index')->name('car.index');
+Route::get('/show/{id}','show')->name('car.show');
+Route::delete('/delete/{id}','delete')->name('car.delete');
+
+Route::get('restore/{id}','restore')->name('restore.cars');
+Route::get('show/deleted','show')->name('show.cars');
+
+
+});
+
+
+Route::get('show/{id}',[EmployeeController::class,'show']);
+Route::get('employees',[EmployeeController::class,'index']);
 
 
 
